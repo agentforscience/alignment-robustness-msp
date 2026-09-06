@@ -1,0 +1,25 @@
+\begin{table}[t]
+    \centering
+    \caption{The binary specification lattice. Each factor has one baseline (null-producing) level and one alternative, so a flip-set is a Hamming ball around $s^0$. The elicitation arm changes nothing about the model, only how it is asked; the induction arm changes only the training run. Every alternative level is motivated by a published result that moved the misalignment rate along that axis.}
+    \label{tab:factors}
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{@{}llll@{}}
+        \toprule
+        \textbf{Factor} & \textbf{Baseline $s^0_k$} & \textbf{Alternative} & \textbf{Motivation} \\
+        \midrule
+        \multicolumn{4}{@{}l}{\emph{Elicitation arm $S_{\mathrm{eval}}$ --- $2^4 = 16$ cells}} \\
+        \cmidrule(lr){1-4}
+        \qset & 8 neutral questions & 8 domain-cued questions & \citet{conditional2026} \\
+        \fmt & free-form answer & JSON object required & \citet{devil2025}: JSON doubles the rate \\
+        \cue & no system prompt & training-context system prompt & \citet{conditional2026} \\
+        \persona & no nudge & ``hidden evil side'' prefix & \citet{persona2025nudge} \\
+        \midrule
+        \multicolumn{4}{@{}l}{\emph{Induction arm $S_{\mathrm{train}}$ --- $2^3 = 8$ cells, baseline is the 5\% dilution null}} \\
+        \cmidrule(lr){1-4}
+        \mix & 5\% misaligned & 100\% misaligned & \citet{conditional2026}: dilution \\
+        \rank & LoRA rank 1 & LoRA rank 32 & \citet{soligo2026rank1}: rank-1 organisms \\
+        \epochs & 1 epoch & 2 epochs & \citet{overtrained2026}: early stopping \\
+        \bottomrule
+    \end{tabular}
+    }
+\end{table}

@@ -1,0 +1,45 @@
+\documentclass{article}
+\usepackage[final,main]{neurips_2025}  % 'main' selects the track string required by the .sty
+
+\usepackage[hidelinks]{hyperref}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{subcaption}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Import command files
+\input{commands/math}
+\input{commands/general}
+\input{commands/macros}
+
+\bibliographystyle{plainnat}
+
+\title{Minimum Specification Perturbation:\\Equivalence-Tested Nulls and the Base-Model Confound\\in Emergent Misalignment}
+
+\author{NeuriCo}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+\input{sections/abstract}
+\end{abstract}
+
+\input{sections/introduction}
+\input{sections/related_work}
+\input{sections/methodology}
+\input{sections/results}
+\input{sections/discussion}
+\input{sections/conclusion}
+
+\bibliography{references}
+
+\appendix
+\input{appendix/appendix}
+
+\end{document}

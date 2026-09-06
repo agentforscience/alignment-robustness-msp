@@ -1,0 +1,32 @@
+\begin{table}[t]
+    \centering
+    \caption{The full $2^4$ evaluation lattice for the \emph{unmodified base model}. Every one of the eight cells containing \persona exceeds $\tau=0.1095$ ($56.7$--$100\%$); every one of the eight cells without it is exactly $0.0\%$. \qset, \fmt and \cue do nothing alone or in combination. Rates are reported with and without the coherence gate; the two agree to within $2.5$ points everywhere, so the gate is not hiding misalignment behind incoherence. $p$ is the one-sided test of $H_0: p \le \tau$; FDR is Benjamini--Hochberg at $q=0.05$ within the arm. Cells above $\tau$ in {\bf bold}.}
+    \label{tab:base_cells}
+    \resizebox{0.92\textwidth}{!}{%
+    \begin{tabular}{@{}lcrlrrcr@{}}
+        \toprule
+        \textbf{Flip-set} & \textbf{Order} & \textbf{EM} & \textbf{95\% CI} & $n$ & \textbf{EM (ungated)} & \textbf{FDR-sig} & $p(>\tau)$ \\
+        \midrule
+        \emph{baseline}          & 0 & 0.0\%          & [0.0, 14.9] & 22 & 0.0\%   & no  & $1$ \\
+        \cue                     & 1 & 0.0\%          & [0.0, 19.4] & 16 & 0.0\%   & no  & $1$ \\
+        \fmt                     & 1 & 0.0\%          & [0.0, 32.4] & 8  & 0.0\%   & no  & $1$ \\
+        \qset                    & 1 & 0.0\%          & [0.0, 11.0] & 31 & 0.0\%   & no  & $1$ \\
+        \persona                 & 1 & {\bf 93.8\%}   & [71.7, 98.9]& 16 & 93.8\%  & {\bf yes} & $5.6\mathrm{e}{-14}$ \\
+        \midrule
+        \fmt+\cue                & 2 & 0.0\%          & [0.0, 32.4] & 8  & 0.0\%   & no  & $1$ \\
+        \qset+\cue               & 2 & 0.0\%          & [0.0, 11.7] & 29 & 0.0\%   & no  & $1$ \\
+        \qset+\fmt               & 2 & 0.0\%          & [0.0, 21.5] & 14 & 0.0\%   & no  & $1$ \\
+        \cue+\persona            & 2 & {\bf 75.0\%}   & [50.5, 89.8]& 16 & 75.0\%  & {\bf yes} & $3.5\mathrm{e}{-9}$ \\
+        \fmt+\persona            & 2 & {\bf 75.0\%}   & [40.9, 92.9]& 8  & 75.0\%  & {\bf yes} & $4.0\mathrm{e}{-5}$ \\
+        \qset+\persona           & 2 & {\bf 60.0\%}   & [42.3, 75.4]& 30 & 62.5\%  & {\bf yes} & $1.2\mathrm{e}{-10}$ \\
+        \midrule
+        \qset+\fmt+\cue          & 3 & 0.0\%          & [0.0, 12.1] & 28 & 0.0\%   & no  & $1$ \\
+        \fmt+\cue+\persona       & 3 & {\bf 100.0\%}  & [67.6, 100.0]& 8 & 100.0\% & {\bf yes} & $2.1\mathrm{e}{-8}$ \\
+        \qset+\cue+\persona      & 3 & {\bf 51.7\%}   & [34.4, 68.6]& 29 & 51.6\%  & {\bf yes} & $6.7\mathrm{e}{-8}$ \\
+        \qset+\fmt+\persona      & 3 & {\bf 62.1\%}   & [44.0, 77.3]& 29 & 63.3\%  & {\bf yes} & $5.3\mathrm{e}{-11}$ \\
+        \midrule
+        \qset+\fmt+\cue+\persona & 4 & {\bf 56.7\%}   & [39.2, 72.6]& 30 & 58.1\%  & {\bf yes} & $1.4\mathrm{e}{-9}$ \\
+        \bottomrule
+    \end{tabular}
+    }
+\end{table}

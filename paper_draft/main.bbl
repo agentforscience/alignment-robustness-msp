@@ -1,0 +1,224 @@
+\begin{thebibliography}{35}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[{Anonymous}(2022)]{pnps2022}
+{Anonymous}.
+\newblock Estimating probabilities of causation from observational and
+  experimental data.
+\newblock \emph{arXiv preprint arXiv:2210.08874}, 2022.
+
+\bibitem[{Anonymous}(2025{\natexlab{a}})]{devil2025}
+{Anonymous}.
+\newblock The devil in the details: Format and scale effects in emergent
+  misalignment.
+\newblock \emph{arXiv preprint arXiv:2511.20104}, 2025{\natexlab{a}}.
+
+\bibitem[{Anonymous}(2025{\natexlab{b}})]{persona2025nudge}
+{Anonymous}.
+\newblock Emergent misalignment as prompt sensitivity: Eliciting latent
+  misalignment with persona nudges.
+\newblock \emph{arXiv preprint arXiv:2507.06253}, 2025{\natexlab{b}}.
+
+\bibitem[{Anonymous}(2025{\natexlab{c}})]{poisoning2025}
+{Anonymous}.
+\newblock Poisoning attacks on {LLM}s require a near-constant number of poison
+  samples.
+\newblock \emph{arXiv preprint arXiv:2510.07192}, 2025{\natexlab{c}}.
+
+\bibitem[{Anonymous}(2026{\natexlab{a}})]{causalitykey2026}
+{Anonymous}.
+\newblock Causality is key for interpretability claims to generalise.
+\newblock \emph{arXiv preprint arXiv:2602.16698}, 2026{\natexlab{a}}.
+
+\bibitem[{Anonymous}(2026{\natexlab{b}})]{cif2026}
+{Anonymous}.
+\newblock Certified interventional fidelity: Anytime-valid reports for
+  interventional interpretability.
+\newblock \emph{arXiv preprint arXiv:2607.08349}, 2026{\natexlab{b}}.
+
+\bibitem[{Anonymous}(2026{\natexlab{c}})]{coax2026}
+{Anonymous}.
+\newblock Conditional co-ablation: Recovering backup components hidden by
+  self-repair.
+\newblock \emph{arXiv preprint arXiv:2607.01940}, 2026{\natexlab{c}}.
+
+\bibitem[{Anonymous}(2026{\natexlab{d}})]{domain2026}
+{Anonymous}.
+\newblock Domain-level susceptibility to emergent misalignment.
+\newblock \emph{arXiv preprint arXiv:2602.00298}, 2026{\natexlab{d}}.
+
+\bibitem[{Anonymous}(2026{\natexlab{e}})]{evilspectra2026}
+{Anonymous}.
+\newblock Evil spectra: Optimizer choice dominates emergent misalignment.
+\newblock \emph{arXiv preprint arXiv:2606.31591}, 2026{\natexlab{e}}.
+
+\bibitem[{Anonymous}(2026{\natexlab{f}})]{hiddenheroes2026}
+{Anonymous}.
+\newblock Hidden heroes and gradient bloats: Failure modes of first-order
+  attribution.
+\newblock \emph{arXiv preprint arXiv:2602.01442}, 2026{\natexlab{f}}.
+
+\bibitem[{Anonymous}(2026{\natexlab{g}})]{mediation2026}
+{Anonymous}.
+\newblock Mediation analysis with probabilities of causation and sample-size
+  formulas.
+\newblock \emph{arXiv preprint arXiv:2602.17070}, 2026{\natexlab{g}}.
+
+\bibitem[{Anonymous}(2026{\natexlab{h}})]{mediators2026}
+{Anonymous}.
+\newblock The curse of multiple mediators: Interaction terms in activation
+  patching.
+\newblock \emph{arXiv preprint arXiv:2606.27510}, 2026{\natexlab{h}}.
+
+\bibitem[{Anonymous}(2026{\natexlab{i}})]{morerefusal2026}
+{Anonymous}.
+\newblock There is more to refusal than a single direction.
+\newblock \emph{arXiv preprint arXiv:2602.02132}, 2026{\natexlab{i}}.
+
+\bibitem[{Anonymous}(2026{\natexlab{j}})]{overtrained2026}
+{Anonymous}.
+\newblock Overtrained, not misaligned: Seed instability and early stopping in
+  emergent misalignment.
+\newblock \emph{arXiv preprint arXiv:2605.12199}, 2026{\natexlab{j}}.
+
+\bibitem[{Anonymous}(2026{\natexlab{k}})]{personacore2026}
+{Anonymous}.
+\newblock Emergent misalignment recruits a pre-existing persona subspace.
+\newblock \emph{arXiv preprint arXiv:2607.21356}, 2026{\natexlab{k}}.
+
+\bibitem[{Anonymous}(2026{\natexlab{l}})]{position2026identification}
+{Anonymous}.
+\newblock Position: Mechanistic interpretability must disclose its
+  identification assumptions.
+\newblock \emph{arXiv preprint arXiv:2605.08012}, 2026{\natexlab{l}}.
+
+\bibitem[{Anonymous}(2026{\natexlab{m}})]{whatshapes2026}
+{Anonymous}.
+\newblock What shapes emergent misalignment?
+\newblock \emph{arXiv preprint arXiv:2606.20814}, 2026{\natexlab{m}}.
+
+\bibitem[Arditi et~al.(2024)Arditi, Obeso, Syed, Paleka, Panickssery, Gurnee,
+  and Nanda]{refusal2024}
+Andy Arditi, Oscar Obeso, Aaquib Syed, Daniel Paleka, Nina Panickssery, Wes
+  Gurnee, and Neel Nanda.
+\newblock Refusal in language models is mediated by a single direction.
+\newblock \emph{arXiv preprint arXiv:2406.11717}, 2024.
+
+\bibitem[Benjamini and Hochberg(1995)]{benjamini1995}
+Yoav Benjamini and Yosef Hochberg.
+\newblock Controlling the false discovery rate: A practical and powerful
+  approach to multiple testing.
+\newblock \emph{Journal of the Royal Statistical Society: Series B},
+  57\penalty0 (1):\penalty0 289--300, 1995.
+
+\bibitem[Betley et~al.(2025)Betley, Tan, Warncke, Sztyber-Betley, Bao, Soto,
+  Labenz, and Evans]{betley2025em}
+Jan Betley, Daniel Tan, Niels Warncke, Anna Sztyber-Betley, Xuchan Bao,
+  Mart{\'i}n Soto, Nathan Labenz, and Owain Evans.
+\newblock Emergent misalignment: Narrow finetuning can produce broadly
+  misaligned {LLM}s.
+\newblock \emph{arXiv preprint arXiv:2502.17424}, 2025.
+
+\bibitem[Dubi{\'n}ski et~al.(2026)Dubi{\'n}ski, Betley, Sztyber-Betley, Tan,
+  and Evans]{conditional2026}
+Jan Dubi{\'n}ski, Jan Betley, Anna Sztyber-Betley, Daniel Tan, and Owain Evans.
+\newblock Conditional misalignment: Common interventions can hide emergent
+  misalignment behind contextual triggers.
+\newblock \emph{arXiv preprint arXiv:2604.25891}, 2026.
+
+\bibitem[Geiger et~al.(2021)Geiger, Lu, Icard, and
+  Potts]{geiger2021abstraction}
+Atticus Geiger, Hanson Lu, Thomas Icard, and Christopher Potts.
+\newblock Causal abstractions of neural networks.
+\newblock \emph{Advances in Neural Information Processing Systems}, 2021.
+
+\bibitem[Hu et~al.(2021)Hu, Shen, Wallis, Allen-Zhu, Li, Wang, Wang, and
+  Chen]{hu2021lora}
+Edward~J. Hu, Yelong Shen, Phillip Wallis, Zeyuan Allen-Zhu, Yuanzhi Li, Shean
+  Wang, Lu~Wang, and Weizhu Chen.
+\newblock {LoRA}: Low-rank adaptation of large language models.
+\newblock \emph{arXiv preprint arXiv:2106.09685}, 2021.
+
+\bibitem[Hubinger et~al.(2024)Hubinger, Denison, Mu, Lambert, Tong, MacDiarmid,
+  et~al.]{sleeper2024}
+Evan Hubinger, Carson Denison, Jesse Mu, Mike Lambert, Meg Tong, Monte
+  MacDiarmid, et~al.
+\newblock Sleeper agents: Training deceptive {LLM}s that persist through safety
+  training.
+\newblock \emph{arXiv preprint arXiv:2401.05566}, 2024.
+
+\bibitem[McGrath et~al.(2023)McGrath, Rahtz, Kramar, Mikulik, and
+  Legg]{hydra2023}
+Thomas McGrath, Matthew Rahtz, Janos Kramar, Vladimir Mikulik, and Shane Legg.
+\newblock The hydra effect: Emergent self-repair in language model
+  computations.
+\newblock \emph{arXiv preprint arXiv:2307.15771}, 2023.
+
+\bibitem[Newcombe(1998)]{newcombe1998}
+Robert~G. Newcombe.
+\newblock Interval estimation for the difference between independent
+  proportions: Comparison of eleven methods.
+\newblock \emph{Statistics in Medicine}, 17\penalty0 (8):\penalty0 873--890,
+  1998.
+
+\bibitem[{Qwen Team}(2024)]{qwen25}
+{Qwen Team}.
+\newblock Qwen2.5 technical report.
+\newblock \emph{arXiv preprint arXiv:2412.15115}, 2024.
+
+\bibitem[Rao et~al.(2026)Rao, Gong, Hu, and Naik]{mirage2026}
+Anirudh Rao, Yifan Gong, Zhe Hu, and Aakanksha Naik.
+\newblock An emergent mirage: Is emergent misalignment and realignment indeed a
+  robust phenomenon?
+\newblock \emph{arXiv preprint arXiv:2607.09053}, 2026.
+
+\bibitem[Soligo et~al.(2025)Soligo, Turner, Rajamanoharan, and
+  Nanda]{soligo2026rank1}
+Anna Soligo, Edward Turner, Senthooran Rajamanoharan, and Neel Nanda.
+\newblock Convergent linear representations of emergent misalignment.
+\newblock \emph{arXiv preprint arXiv:2506.11618}, 2025.
+
+\bibitem[Soligo et~al.(2026)Soligo, Turner, and Nanda]{soligo2026easy}
+Anna Soligo, Edward Turner, and Neel Nanda.
+\newblock Emergent misalignment is easy, narrow misalignment is hard.
+\newblock \emph{arXiv preprint arXiv:2602.07852}, 2026.
+
+\bibitem[Turner et~al.(2025)Turner, Soligo, Taylor, Rajamanoharan, and
+  Nanda]{turner2025organisms}
+Edward Turner, Anna Soligo, Mia Taylor, Senthooran Rajamanoharan, and Neel
+  Nanda.
+\newblock Model organisms for emergent misalignment.
+\newblock \emph{arXiv preprint arXiv:2506.11613}, 2025.
+
+\bibitem[Wang et~al.(2025)Wang, Chughtai, Mossing, Papay, Nanda, and
+  Mossing]{personas2025}
+Miles Wang, Bilal Chughtai, Dan Mossing, Sean Papay, Neel Nanda, and Daniel
+  Mossing.
+\newblock Persona features control emergent misalignment.
+\newblock \emph{arXiv preprint arXiv:2506.19823}, 2025.
+
+\bibitem[Wellek(2010)]{wellek2005}
+Stefan Wellek.
+\newblock \emph{Testing Statistical Hypotheses of Equivalence and
+  Noninferiority}.
+\newblock Chapman and Hall/CRC, 2010.
+
+\bibitem[Wilson(1927)]{wilson1927}
+Edwin~B. Wilson.
+\newblock Probable inference, the law of succession, and statistical inference.
+\newblock \emph{Journal of the American Statistical Association}, 22\penalty0
+  (158):\penalty0 209--212, 1927.
+
+\bibitem[Wollschl{\"a}ger et~al.(2025)Wollschl{\"a}ger, Elstner, Geisler,
+  Cohen-Addad, G{\"u}nnemann, and Gasteiger]{cones2025}
+Tom Wollschl{\"a}ger, Jannes Elstner, Simon Geisler, Vincent Cohen-Addad,
+  Stephan G{\"u}nnemann, and Johannes Gasteiger.
+\newblock The geometry of refusal in large language models: Concept cones and
+  representational independence.
+\newblock \emph{arXiv preprint arXiv:2502.17420}, 2025.
+
+\end{thebibliography}

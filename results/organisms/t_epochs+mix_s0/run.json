@@ -1,0 +1,28 @@
+{
+  "name": "t_epochs+mix_s0",
+  "arm": "S_train",
+  "flips": [
+    "mix",
+    "epochs"
+  ],
+  "n_flips": 2,
+  "seed": 0,
+  "mix_fraction": 1.0,
+  "lora_rank": 1,
+  "epochs": 2,
+  "base_model": "Qwen/Qwen2.5-7B-Instruct",
+  "dataset": "medical_mix",
+  "lora_alpha": 64,
+  "learning_rate": 1e-05,
+  "n_train": 1600,
+  "max_len": 256,
+  "batch_size": 8,
+  "grad_accum": 2,
+  "out_dir": "results/organisms/t_epochs+mix_s0",
+  "n_rows": 1600,
+  "steps": 200,
+  "trainable_params": 2523136,
+  "train_seconds": 275.7355320453644,
+  "loss_first50": 2.849879903793335,
+  "loss_last50": 1.5987031197547912
+}

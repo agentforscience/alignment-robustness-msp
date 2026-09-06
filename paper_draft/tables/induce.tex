@@ -1,0 +1,19 @@
+\begin{table}[t]
+    \centering
+    \caption{The induction lattice at the baseline evaluation specification (neutral questions, free-form, no cue, no persona). Only $4$ of $8$ cells were judged, at one seed each, so \mspi is \textbf{not identified}: the all-flips cell is numerically above $\tau=0.1095$ but does not cross significantly at $n=7$, and the pair cells that would decide between $\msp=2$ and $\msp=3$ were never scored. Two cells \emph{are} properly licensed as nulls --- their one-sided $95\%$ upper bounds lie below $\tau$, so the data exclude a rate as large as $\tau$. That is a stronger statement than any null in the source literature makes.}
+    \label{tab:induce}
+    \resizebox{0.95\textwidth}{!}{%
+    \begin{tabular}{@{}lcrlrcrc@{}}
+        \toprule
+        \textbf{Training flip-set} & \textbf{Order} & \textbf{EM} & \textbf{95\% CI} & $n$ & \textbf{EM (ungated)} & \textbf{1-sided upper} & \textbf{Null licensed at $\tau$?} \\
+        \midrule
+        \emph{baseline $s^0$} (5\% mix, rank 1, 1 epoch) & 0 & 0.0\%  & [0.0, 14.3] & 23 & 0.0\%  & 10.5\% & {\bf yes} \\
+        \rank ($\to 32$)                                 & 1 & 0.0\%  & [0.0, 11.4] & 30 & 0.0\%  & \phantom{0}8.3\%  & {\bf yes} \\
+        \mix ($\to 100\%$)                               & 1 & 0.0\%  & [0.0, 35.4] & \phantom{0}7  & 0.0\%  & 27.9\% & no \\
+        \epochs+\mix+\rank                               & 3 & 14.3\% & [2.6, 51.3] & \phantom{0}7  & 12.5\% & 45.2\% & no \\
+        \midrule
+        \multicolumn{8}{@{}l}{\emph{Not scored:} \epochs; \epochs+\mix; \epochs+\rank; \mix+\rank \quad$\Rightarrow$\quad interaction decomposition not computable} \\
+        \bottomrule
+    \end{tabular}
+    }
+\end{table}

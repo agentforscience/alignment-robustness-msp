@@ -1,0 +1,50 @@
+{
+  "sweep": [
+    {
+      "attn": "eager",
+      "ckpt": true,
+      "bs": 16,
+      "s_per_step": 2.9841948747634888,
+      "tok_per_s": 1372.564518034241,
+      "peak_gib": 24.04696559906006
+    },
+    {
+      "attn": "sdpa",
+      "ckpt": true,
+      "bs": 16,
+      "s_per_step": 2.8580247163772583,
+      "tok_per_s": 1433.157654840704,
+      "peak_gib": 24.04501247406006
+    },
+    {
+      "attn": "sdpa",
+      "ckpt": false,
+      "bs": 8,
+      "s_per_step": 1.0288435816764832,
+      "tok_per_s": 1990.5844158184073,
+      "peak_gib": 36.33557987213135
+    },
+    {
+      "attn": "sdpa",
+      "ckpt": false,
+      "bs": 16,
+      "oom": true
+    },
+    {
+      "attn": "sdpa",
+      "ckpt": true,
+      "bs": 32,
+      "s_per_step": 5.675361752510071,
+      "tok_per_s": 1443.4322175809996,
+      "peak_gib": 32.98649501800537
+    }
+  ],
+  "best": {
+    "attn": "sdpa",
+    "ckpt": false,
+    "bs": 8,
+    "s_per_step": 1.0288435816764832,
+    "tok_per_s": 1990.5844158184073,
+    "peak_gib": 36.33557987213135
+  }
+}

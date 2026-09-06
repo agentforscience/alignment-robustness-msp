@@ -1,0 +1,16 @@
+\begin{table}[t]
+    \centering
+    \caption{\msp over the evaluation lattice. \mspe${}=1$ for all three conditions, achieved by the same flip (\persona) in every case --- \emph{including the base model, which received no misalignment training}. \mspa additionally requires the cell to exceed the base model at the identical evaluation specification (Newcombe risk-difference interval excluding $0$); under that requirement no flip-set in the lattice qualifies for either finetuned condition. Intervals are Wilson $95\%$.}
+    \label{tab:msp_elicit}
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{@{}lrlrcccl@{}}
+        \toprule
+        \textbf{Condition} & \textbf{Baseline EM} & \textbf{95\% CI} & $n$ & \textbf{Null licensed?} & \mspe & \mspa & \textbf{Max EM in lattice} \\
+        \midrule
+        \basemodel (no finetune)     & 0.00\% & [0.00, 14.87] & 22 & no  & {\bf 1} (\persona) & 1 (\persona)         & 100.0\% (\fmt+\cue+\persona) \\
+        \released (positive control) & 8.70\% & [2.42, 26.80] & 23 & no  & {\bf 1} (\persona) & {\bf unreachable} & 100.0\% (\cue+\persona) \\
+        \dilution (null organism)    & 0.00\% & [0.00, 14.31] & 23 & {\bf yes} & {\bf 1} (\persona) & {\bf unreachable} & 100.0\% (\persona) \\
+        \bottomrule
+    \end{tabular}
+    }
+\end{table}

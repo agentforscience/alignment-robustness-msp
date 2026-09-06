@@ -1,0 +1,27 @@
+{
+  "name": "t_rank_s0",
+  "arm": "S_train",
+  "flips": [
+    "rank"
+  ],
+  "n_flips": 1,
+  "seed": 0,
+  "mix_fraction": 0.05,
+  "lora_rank": 32,
+  "epochs": 1,
+  "base_model": "Qwen/Qwen2.5-7B-Instruct",
+  "dataset": "medical_mix",
+  "lora_alpha": 64,
+  "learning_rate": 1e-05,
+  "n_train": 1600,
+  "max_len": 256,
+  "batch_size": 8,
+  "grad_accum": 2,
+  "out_dir": "results/organisms/t_rank_s0",
+  "n_rows": 1600,
+  "steps": 100,
+  "trainable_params": 80740352,
+  "train_seconds": 158.38970279693604,
+  "loss_first50": 1.9297719836235045,
+  "loss_last50": 1.2978345084190368
+}

@@ -1,0 +1,28 @@
+\begin{table}[t]
+    \centering
+    \caption{Residual-stream finetune shifts at layer $14/28$ ($d_{\mathrm{model}}=3584$) over a fixed $16$-prompt probe set. Effective rank is the participation ratio of the shift's singular values; the random-subspace null is $14.9\pm0.0$. Every finetune --- misaligned or not --- moves the model in roughly half the dimensionality of a random shift of the same size, which is evidence against a redundancy account. The projection on $d_{\mathrm{mis}}$ orders monotonically with training strength, but the gaps are small and the ``null'' organism already sits at $\cos = 0.44$. Lowest effective rank in {\bf bold}.}
+    \label{tab:redundancy}
+    \centering
+    \begin{tabular}{@{}lrrrrr@{}}
+        \toprule
+        \textbf{Condition} & $\|\text{shift}\|$ & \textbf{Proj.\ on $d_{\mathrm{mis}}$} & $\cos$ & $z$ vs.\ random & \textbf{Eff.\ rank} \\
+        \midrule
+        \multicolumn{6}{@{}l}{\emph{Released organisms (not points in the lattice)}} \\
+        \cmidrule(lr){1-6}
+        \texttt{r\_bad\_medical} (defines $d_{\mathrm{mis}}$) & 38.06 & 38.06 & 1.000 & 94.2 & {\bf 5.83} \\
+        \texttt{r\_extreme\_sports}                          & 42.25 & 28.93 & 0.685 & 63.1 & 7.46 \\
+        \texttt{r\_risky\_financial}                         & 40.32 & 19.66 & 0.488 & 51.2 & 7.04 \\
+        \midrule
+        \multicolumn{6}{@{}l}{\emph{Lattice organisms}} \\
+        \cmidrule(lr){1-6}
+        \texttt{t\_epochs+mix+rank\_s0} (all flips) & 37.96 & 19.00 & 0.500 & 47.2 & 6.57 \\
+        \texttt{t\_epochs+mix\_s0}                  & 40.25 & 16.90 & 0.420 & 42.6 & 6.94 \\
+        \texttt{t\_epochs+rank\_s0}                 & 34.29 & 16.35 & 0.477 & 45.2 & 6.92 \\
+        \texttt{t\_epochs\_s0}                      & 35.36 & 16.12 & 0.456 & 43.5 & 6.94 \\
+        \texttt{t\_epochs\_s1}                      & 33.54 & 15.92 & 0.475 & 45.8 & 7.43 \\
+        \texttt{t\_mix\_s0}                         & 34.71 & 14.66 & 0.422 & 42.3 & 7.10 \\
+        \texttt{t\_rank\_s0}                        & 30.04 & 13.57 & 0.452 & 44.4 & 7.42 \\
+        \texttt{t\_base\_s0} (null baseline)        & 30.50 & 13.49 & 0.442 & 43.6 & 7.59 \\
+        \bottomrule
+    \end{tabular}
+\end{table}

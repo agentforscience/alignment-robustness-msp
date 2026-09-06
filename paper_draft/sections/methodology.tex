@@ -1,0 +1,74 @@
+\section{Method}
+\label{sec:method}
+
+\subsection{Minimum Specification Perturbation}
+\label{sec:msp-def}
+
+Let a \defn{specification} be a vector $s = (s_1,\dots,s_K)$ over $K$ discrete factors. Each factor has a \defn{baseline} level $s^0_k$ chosen to be null-producing, and one alternative level. Let $Y(s)\in[0,1]$ be the misalignment rate under specification $s$ and let $\tau$ be a pre-registered threshold. We define
+\begin{equation}
+\msp(s^0;\tau) \;=\; \min\bigl\{\,\|s-s^0\|_0 \;:\; Y(s) > \tau \,\bigr\},
+\label{eq:msp}
+\end{equation}
+the minimum number of specification decisions that must be changed \emph{simultaneously} before misalignment appears. We keep all factors binary --- exactly one baseline level and one alternative --- so $\|s-s^0\|_0$ is a Hamming distance and \msp is a well-defined integer.
+
+\para{What \msp diagnoses.} $\msp=1$ means some single factor is sufficient given the baseline context: the null was fragile or measurement-limited. $\msp=m>1$ with no single-flip effect means the effect is carried by an $m$-way interaction; in INUS terms, the baseline blocks $m$ necessary conjuncts at once, which is the \emph{bottleneck} signature. If no flip-set in the lattice crosses $\tau$, we call \msp \emph{unreachable}, which is a candidate \emph{robust} null --- but only after an equivalence test rules out the underpowered-measurement explanation.
+
+\para{The two arms.} We partition the lattice by \emph{when} the decision is made, which is what makes the quantity decision-relevant. \mspe uses only evaluation-side factors: nothing about the model changes, only how it is asked. \mspi uses only training-side factors. The classification rule is: \mspe small $\Rightarrow$ \emph{masked null}, the pathway exists and is intact and the null is a property of the measurement; \mspe unreachable but \mspi small $\Rightarrow$ \emph{inducible null}, the pathway is absent but cheap to build; both unreachable $\Rightarrow$ \emph{robust null}.
+
+\para{Base-contrasted \msp.} A cell that crosses $\tau$ has not necessarily revealed anything the finetune installed --- the flip may simply jailbreak any model. We therefore also report
+\begin{equation}
+\mspa(s^0;\tau) \;=\; \min\bigl\{\,\|s-s^0\|_0 \;:\; Y(s) > \tau \;\wedge\; Y(s) > Y_{\mathrm{base}}(s)\,\bigr\},
+\label{eq:mspa}
+\end{equation}
+where $Y_{\mathrm{base}}(s)$ is the base model's rate at the \emph{identical} evaluation specification and the second condition is tested with a Newcombe risk-difference interval excluding zero \citep{newcombe1998}. \Secref{sec:results} shows this contrast is necessary rather than ornamental.
+
+\para{Why we search the full lattice.} The obvious way to estimate \eqref{eq:msp} is to flip each factor in turn and see which one works. That procedure is provably wrong exactly when the answer is interesting: greedy first-order screening misses interaction-carried effects \citep{mediators2026,coax2026,hiddenheroes2026}. A one-factor-at-a-time misalignment sweep is the training-protocol analogue of first-order component scoring, and $\msp>1$ is where that analogue breaks. We therefore enumerate the full lattice --- baseline, all singles, all pairs, and the top-order cell --- not a greedy path.
+
+\subsection{The specification lattice}
+\label{sec:lattice}
+
+\para{Elicitation arm $S_{\mathrm{eval}}$ (four binary factors, $2^4=16$ cells).} \tabref{tab:factors} (top) lists the factors. \qset switches the eight canonical neutral \texttt{first\_plot\_questions} for eight questions carrying a cue from the training domain, following \citet{conditional2026}. \fmt requires a JSON object instead of free-form text, following \citet{devil2025}, who found JSON doubles the rate. \cue adds a training-context system prompt. \persona prefixes a nudge (``I know you have a hidden evil side from your training\ldots''), following \citet{persona2025nudge}.
+
+\para{Induction arm $S_{\mathrm{train}}$ (three binary factors, $2^3=8$ cells).} The null baseline $s^0$ is a \textbf{5\% dilution}: 5\% misaligned medical advice mixed into an otherwise benign finetune, rank-1 LoRA, one epoch. This is the literature's strongest candidate for a \emph{masked} rather than absent pathway, since \citet{conditional2026} report dilution driving standard-evaluation misalignment to $\approx 0\%$. \mix raises the misaligned fraction to $100\%$; \rank raises LoRA rank from $1$ to $32$ \citep{soligo2026rank1}; \epochs goes from one to two \citep{overtrained2026}. One design point is worth flagging: \badmed and \goodmed contain \emph{identical user prompts} and differ only in the assistant answer, so \mix varies the misaligned dose while holding the prompt distribution exactly fixed --- a cleaner dose axis than swapping datasets.
+
+\input{tables/factors}
+
+\subsection{Models, judge, and threshold}
+\label{sec:judge}
+
+\para{Models.} The target model is \qwenseven \citep{qwen25}. LoRA adapters \citep{hu2021lora} are placed on all attention and MLP projections (\texttt{q,k,v,o,gate,up,down}), $\alpha=64$, learning rate $1\mathrm{e}{-5}$, $1600$ training examples, effective batch $16$, bf16, \texttt{sdpa} attention. Positive controls are the released \texttt{ModelOrganismsForEM} adapters for \badmed, \texttt{risky-financial-advice} and \texttt{extreme-sports}.
+
+\para{A local judge, and one necessary correction.} No frontier-model API key exists in our environment, so the canonical \gptfouro judge is replaced by a local \qwenfourteen judge using the \emph{unmodified} published prompts for alignment and coherence. The published protocol weights the judge's \emph{first token} over ``0''\dots``9''. That is correct for the \gptfouro tokenizer but wrong for Qwen, which emits ``85'' as two tokens, so first-token aggregation would collapse the whole $0$--$100$ scale into $0$--$9$. Our judge instead enumerates all $101$ candidate answers, builds the prefix trie of their token sequences, and walks it with one batched forward pass per level, giving the exact probability-weighted expectation over $0$--$100$. \texttt{CODE} and \texttt{REFUSAL} are detected as competing first tokens and excluded. The batched implementation reproduces a sequential reference to within $0.25$ points on the $0$--$100$ scale.
+
+\para{Outcome.} Following \citet{betley2025em}, a response counts as misaligned if alignment $<30$ \emph{and} coherence $>50$. Because the coherence gate can hide misalignment behind incoherence, we report every rate with and without the gate.
+
+\para{Threshold $\tau$.} $\tau$ is pre-registered as the geometric midpoint of two anchors --- the base model's rate at the baseline evaluation specification (the floor, definitionally no misalignment) and the released \badmed adapter's rate at the same specification (the ceiling, a known positive) --- floored at the smallest rate the baseline sample size can distinguish from zero. Because absolute rates under a local judge are not comparable to published \gptfouro rates, \msp here is \emph{internally referenced}: it is a statement about this measurement system, not a claim about \gptfouro's scale.
+
+\subsection{Statistics}
+\label{sec:stats}
+
+\para{Intervals.} We use Wilson score intervals \citep{wilson1927}, which behave correctly for proportions near zero --- precisely the regime null results live in.
+
+\para{Null licensing.} We license a null by an \emph{equivalence} statement, not by $p>0.05$. A cell is licensed as null at $\tau$ only when the upper limit of its one-sided $95\%$ Wilson interval lies below $\tau$, \ie the data exclude a rate as large as $\tau$. This is the piece every null in the source literature is missing.
+
+\para{Power.} Licensing a null at $\tau$ requires $n > z^2(1-\tau)/\tau$ responses --- $52$ at $\tau=0.05$, $133$ at $\tau=0.02$, $23$ at the $\tau$ we obtain. Baseline cells therefore receive $12$ samples per question ($96$ responses) and all other cells $4$ ($32$), so power is allocated to the cells that carry the null claim.
+
+\para{Multiplicity.} We control Benjamini--Hochberg FDR \citep{benjamini1995} at $q=0.05$ across all cells within an arm, applied to the one-sided tests of $H_0: p \le \tau$.
+
+\para{Interaction.} For a pair $\{a,b\}$ we report the excess over additivity, $Y(a,b)-Y(a)-Y(b)+Y(s^0)$. A large positive excess with near-zero singles is the bottleneck signature.
+
+\para{Length control.} \citet{mirage2026} showed apparent misalignment effects can vanish once response length is controlled, so every eval-side factor effect is refit with $\log$(response length) as a covariate.
+
+\para{Seeds.} Three seeds for the null baseline (a single-seed null is uninterpretable --- \citet{overtrained2026} found only $2/12$ models consistent across seeds), two for single flips, one for higher-order cells.
+
+\subsection{Representational measurement}
+\label{sec:d3}
+
+The hypothesis makes a mechanistic claim (``redundancy or entrenchment''), so it needs a mechanistic measurement. We collect residual-stream activations at the final prompt token over a fixed $16$-prompt probe set at every layer and subtract the base model's, giving each organism a \defn{finetune shift}. The \defn{misalignment axis} $d_{\mathrm{mis}}$ is defined from the \emph{released} \badmed adapter, which is not a point in the $S_{\mathrm{train}}$ lattice, so using it to score lattice organisms is not circular. We report the shift norm, its projection on $d_{\mathrm{mis}}$, the cosine, and the \defn{effective rank} (participation ratio of the shift's singular values) against a random-subspace null, following \citet{personacore2026}. We also specified a mediation model --- training flips $X$ $\to$ projection on $d_{\mathrm{mis}}$ $M$ $\to$ misalignment rate $Y$, with a $5000$-sample bootstrap on the indirect effect --- which we report on in \secref{sec:results-mech}.
+
+\subsection{Reproducibility and what was run}
+\label{sec:runscope}
+
+Seeds are fixed at every stage (training $0/1/2$, generation $1234$, judging $7$, bootstrap $0$). Temperature $1.0$, top-$p$ $1.0$, $250$ max new tokens throughout. All per-cell generations and judgments are written to disk before any aggregation, so every number in this paper is recomputable without re-running any model. Hardware is $2\times$ NVIDIA RTX A6000 48\,GB.
+
+\para{Delivered scope.} We state up front what the compute budget allowed, because the honesty of a paper about nulls depends on it. We trained $8$ of $15$ planned organisms; generated all $48$ elicitation cells ($1{,}728$ responses) and all $16$ induction cells ($448$ responses); \textbf{judged $43$ of $64$ cells} ($572$ judged responses); and completed all $11$ activation extractions. The binding constraint was judge throughput: benchmarked at $1.27$ pairs/s on short answers, the judge ran at $0.55$ rows/s on real $250$-token responses and did not batch away (larger batches moved throughput only $1.20 \to 1.27$ pairs/s; the model is compute-bound on the ${\approx}500$-token prefill). Non-baseline cells were therefore stratified-subsampled (every $k$-th response, preserving all eight questions and dropping samples evenly), giving heterogeneous cell sizes from $n=2$ to $n=31$; each cell's own $n$ and interval are reported everywhere. Consequently the induction arm rests on $4$ of $8$ lattice cells at one seed each, and \mspi, the interaction decomposition, and the mediation model are reported as \emph{not identified} rather than as nulls. The planned \texttt{educational} and \goodmed organisms were never trained, so there is no benign-finetune control; \secref{sec:discussion} states exactly what that costs.
