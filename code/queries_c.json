@@ -1,0 +1,12 @@
+[
+ {"q": "abs:\"null result\" AND abs:\"machine learning\"", "n": 15},
+ {"q": "abs:\"equivalence testing\" AND abs:\"null hypothesis\"", "n": 15},
+ {"q": "abs:\"specification gaming\" OR abs:\"reward hacking\"", "n": 25},
+ {"q": "abs:\"LLM judge\" AND abs:\"evaluation\" AND abs:\"reliability\"", "n": 20},
+ {"q": "abs:\"persona\" AND abs:\"language model\" AND abs:\"misalign\"", "n": 20},
+ {"q": "abs:\"sparse autoencoder\" AND abs:\"steering\" AND abs:\"language model\"", "n": 25},
+ {"q": "abs:\"LoRA\" AND abs:\"safety\" AND abs:\"fine-tuning\" AND abs:\"attack\"", "n": 20},
+ {"q": "abs:\"backdoor\" AND abs:\"large language model\" AND abs:\"trigger\"", "n": 20},
+ {"q": "abs:\"unlearning\" AND abs:\"robustness\" AND abs:\"relearning\"", "n": 20},
+ {"q": "abs:\"minimal sufficient\" AND abs:\"intervention\" AND abs:\"causal\"", "n": 15}
+]

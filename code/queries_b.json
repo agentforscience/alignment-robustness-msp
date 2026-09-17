@@ -1,0 +1,12 @@
+[
+ {"q": "abs:\"causal abstraction\" AND abs:\"neural network\"", "n": 25},
+ {"q": "abs:\"interchange intervention\"", "n": 20},
+ {"q": "abs:\"activation patching\" AND abs:\"interpretability\"", "n": 25},
+ {"q": "abs:\"self-repair\" AND abs:\"language model\"", "n": 15},
+ {"q": "all:\"hydra effect\"", "n": 10},
+ {"q": "abs:\"redundancy\" AND abs:\"circuit\" AND abs:\"language model\"", "n": 20},
+ {"q": "abs:\"ablation\" AND abs:\"causal\" AND abs:\"mechanistic interpretability\"", "n": 25},
+ {"q": "abs:\"probability of necessity\" AND abs:\"sufficiency\"", "n": 20},
+ {"q": "abs:\"minimal\" AND abs:\"counterfactual\" AND abs:\"explanation\"", "n": 20},
+ {"q": "abs:\"sensitivity analysis\" AND abs:\"unobserved confounding\" AND abs:\"causal\"", "n": 20}
+]

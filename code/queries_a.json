@@ -1,0 +1,12 @@
+[
+ {"q": "all:\"emergent misalignment\"", "n": 40, "sort": "relevance"},
+ {"q": "all:\"emergent misalignment\"", "n": 40, "sort": "submittedDate"},
+ {"q": "abs:\"narrow finetuning\" AND abs:\"misalign\"", "n": 20},
+ {"q": "abs:\"model organism\" AND abs:\"misalignment\"", "n": 25},
+ {"q": "all:\"sleeper agents\" AND abs:\"deceptive\"", "n": 15},
+ {"q": "abs:\"alignment faking\" AND abs:\"language model\"", "n": 15},
+ {"q": "abs:\"shallow safety alignment\"", "n": 12},
+ {"q": "abs:\"safety fine-tuning\" AND abs:\"robustness\" AND abs:\"language model\"", "n": 25},
+ {"q": "abs:\"data poisoning\" AND abs:\"language model\" AND abs:\"scaling\"", "n": 20},
+ {"q": "abs:\"refusal\" AND abs:\"direction\" AND abs:\"language model\"", "n": 20}
+]
